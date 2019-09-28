@@ -3,13 +3,19 @@ import requests
 import sys 
 import re
 
-try: 
-    page = requests.get(sys.argv[1])
-except IndexError:
-    page = requests.get("https://medium.com")
+page = requests.get("https://medium.com")
 
-body = bs4(page.content, "html.parser")
+body = bs4(page.text, "html.parser")
 links = {a['href'] for a in body.find_all("a")}
 
-for i in links:
-    print(i)
+for i in links.copy():
+    try: 
+        for j in bs4(requests.get(i).content, 'lxml').find_all("a"):
+            links.add(j['href'])
+    except: 
+        pass
+
+with open('storys.txt', 'w') as s:
+    for i in links: 
+        if re.search(r'\-+\d+\-+\d+\-+', i):
+            s.write(i + '\n')

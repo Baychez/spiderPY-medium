@@ -36,7 +36,7 @@ for r in range(looper):
 			elif re.match('/[^/]', i):
 				add_and_search(f"{url}{i}")	
 		else:
-			print(f"Duplicate {i}")
+			print(f"Duplicate: {i}")
 
 
 	

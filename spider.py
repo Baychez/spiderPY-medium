@@ -8,13 +8,20 @@ page = requests.get(url)
 body = bs4(page.text, "html.parser")
 links = {a['href'] for a in body.find_all("a")}
 old_links = []
+off_site_links = set()
+medium_links = set()
 def add_and_search(x):
 	old_links.append(x)
-	for j in bs4(requests.get(x).content, 'lxml').find_all("a"):
-		try:
-			links.add(j['href'])
-		except KeyError:
-			pass
+	if re.match(fr"{url}", x):
+		medium_links.add(x)
+		for j in bs4(requests.get(x).content, 'lxml').find_all("a"):
+			try:
+				links.add(j['href'])
+			except KeyError:
+				pass
+	else:
+		off_site_links.add(x)
+
 try:
 	looper = int(sys.argv[1]) if len(sys.argv) > 1 else 1
 except ValueError:
@@ -29,16 +36,28 @@ for r in range(looper):
 			elif re.match('/[^/]', i):
 				add_and_search(f"{url}{i}")	
 		else:
-			print(i)
+			print(f"Duplicate {i}")
 
 
 	
 with open('links.txt', 'w') as s:
-	s.write(f"from {looper} loops of mediums urls")
+	s.write("All page links \n")
+	s.write(f"From {looper} loop(s) of mediums urls\n")
 	for i in links: 
 		s.write(i + '\n')
-with open('storys.txt', 'w') as s:
-	s.write(f"from {looper} loops of mediums urls")
+with open('stories.txt', 'w') as s:
+	s.write("All story links \n")
+	s.write(f"From {looper} loop(s) of mediums urls \n")
 	for i in links: 
 		if re.search(r'\-+\d+\-+\d+\-+', i):
 			s.write(i + '\n')
+with open('offSite.txt', 'w') as s:
+	s.write("All off site links \n")
+	s.write(f"From {looper} loop(s) of mediums urls \n")
+	for i in off_site_links: 
+		s.write(i + '\n')
+with open('mediumLinks.txt', 'w') as s:
+	s.write("All links that stay on the medium domain \n")
+	s.write(f"From {looper} loop(s) of mediums urls \n")
+	for i in medium_links: 
+		s.write(i + '\n')

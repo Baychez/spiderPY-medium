@@ -1,1 +1,0 @@
-from 1 loops of mediums urls

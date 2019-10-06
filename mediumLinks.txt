@@ -1,0 +1,17 @@
+All links that stay on the medium domain 
+From 1 loop(s) of mediums urls 
+https://medium.com/membership
+https://medium.com/policy/9db0094a1e0f?source=landing_home---------------------------
+https://medium.com/jobs-at-medium/work-at-medium-959d1a85284e?source=landing_home---------------------------
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F&source=--------------------------landing_home_hero-
+https://medium.com/creators
+https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F&source=landing_home--------------------------landing_home_footer-
+https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F&source=--------------------------landing_home_hero-
+https://medium.com/membership?source=landing_home---------------------------
+https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F&source=--------------------------landing_home_nav-
+https://medium.com/creators?source=landing_home---------------------------
+https://medium.com/about?source=landing_home---------------------------
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F&source=landing_home--------------------------landing_home_footer-
+https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2F&source=--------------------------landing_home_nav-
+https://help.medium.com/?source=landing_home---------------------------
+https://medium.com/gift-checkout?source=landing_home---------------------------

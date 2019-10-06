@@ -6,13 +6,15 @@ url = "https://medium.com"
 page = requests.get(url)
 
 body = bs4(page.text, "html.parser")
-links = {a['href'] for a in body.find_all("a")}
-old_links = []
+links = {a['href'] for a in body.find_all("a")} #all initial page links
+old_links = [] #something to check against so we dont make requests to the same link twice
 off_site_links = set()
 medium_links = set()
+
+#function for adding links to the proper lists/sets and then searching the new urls
 def add_and_search(x):
 	old_links.append(x)
-	if re.match(fr"{url}", x):
+	if re.match(r"https?://[a-zA-Z]*\.?medium\.com", x):
 		medium_links.add(x)
 		for j in bs4(requests.get(x).content, 'lxml').find_all("a"):
 			try:

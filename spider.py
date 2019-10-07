@@ -2,9 +2,9 @@ from bs4 import BeautifulSoup as bs4
 import requests
 import sys 
 import re
+
 url = "https://medium.com"
 page = requests.get(url)
-
 body = bs4(page.text, "html.parser")
 links = {a['href'] for a in body.find_all("a")} #all initial page links
 old_links = [] #something to check against so we dont make requests to the same link twice
@@ -39,8 +39,6 @@ for r in range(looper):
 				add_and_search(f"{url}{i}")	
 		else:
 			print(f"Duplicate: {i}")
-
-
 	
 with open('links.txt', 'w') as s:
 	s.write("All page links \n")

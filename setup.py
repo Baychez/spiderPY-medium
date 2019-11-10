@@ -8,9 +8,7 @@ setup(name='Maze Runner',
       author_email='ellishogan95@gmail.com',
       license='MIT',
       install_requires=[
-          'sys',
           'bs4',
-          're',
           'requests'
       ],
       zip_safe=False)

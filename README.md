@@ -1,4 +1,4 @@
-# Python Medium Grabber
+# Python Medium Crawler
 
 ## An Original Design By: Dev.Icarus
 
